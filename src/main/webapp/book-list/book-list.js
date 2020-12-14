@@ -1,8 +1,7 @@
-
-
 class BookList extends React.Component {
   state = {
-    books: []
+    books: [],
+    strUser: []
   }
 
   findAllBooks = () =>
@@ -21,8 +20,7 @@ class BookList extends React.Component {
       this.findAllBooks()
 
   render() {
-
-    if (strUser === "librarian") {
+    if (this.userStr === "librarian") {
       return (
 
           <div className="container-fluid">

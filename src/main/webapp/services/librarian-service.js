@@ -1,8 +1,8 @@
-const FIND_ALL_LIBRARIANS = "http://localhost:8080/findAlllibrarians"
-const FIND_LIBRARIAN_BY_ID = "http://localhost:8080/findlibrarianById"
-const CREATE_LIBRARIAN_URL = "http://localhost:8080/createlibrarian"
-const DELETE_LIBRARIAN_URL = "http://localhost:8080/deletelibrarian"
-const RENAME_LIBRARIAN_URL = "http://localhost:8080/updatelibrarian"
+const FIND_ALL_LIBRARIANS = "http://localhost:8080/findAllLibrarians"
+const FIND_LIBRARIAN_BY_ID = "http://localhost:8080/findLibrarianById"
+const CREATE_LIBRARIAN_URL = "http://localhost:8080/createLibrarian"
+const DELETE_LIBRARIAN_URL = "http://localhost:8080/deleteLibrarian"
+const RENAME_LIBRARIAN_URL = "http://localhost:8080/updateLibrarian"
 
 const findAllLibrarians = () =>
   fetch(`${FIND_ALL_LIBRARIANS}`)

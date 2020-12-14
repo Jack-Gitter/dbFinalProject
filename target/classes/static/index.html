@@ -2,36 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Home</title>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        rel="stylesheet"/>
+  <title>Title</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
+  <script type='text/javascript' src='index.js'></script>
 </head>
 <body>
-<div class="container">
-  <h1>Home</h1>
-  <label for="user">Choose a user role:</label>
-  <select name="user" id="user">
-    <option value="member">Member</option>
-    <option value="librarian">Librarian</option>
-
-  </select>
-  <ul class="list-group">
-    <li class="list-group-item">
-      <a href="book-list/book-list.html">Books</a>
-    </li>
-    <li class="list-group-item">
-      <a href="librarian-list/librarian-list.html">Librarians</a>
-    </li>
-    <li class="list-group-item">
-      <a href="member-list/member-list.html">Members</a>
-    </li>
-    <li class="list-group-item">
-      <a href="schedule-list/schedule-list.html">Schedules</a>
-    </li>
-  </ul>
-  <script>
-    const e = document.getElementById("user");
-    const strUser = e.value;</script>
-</div>
+<div id="root"></div>
+<script src="index.js" type="text/babel"></script>
 </body>
 </html>

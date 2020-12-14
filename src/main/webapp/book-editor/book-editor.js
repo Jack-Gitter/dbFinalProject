@@ -1,7 +1,8 @@
 class BookEditor extends React.Component {
 
   state = {
-    book: {}
+    book: {},
+    strUsr: {}
   }
 
   findBookById = (id) =>{

@@ -44,7 +44,7 @@ class BookList extends React.Component {
           {
             this.state.books.map(book =>
                 <tr key={book.bookId}>
-                  <td>{book.id}</td>
+                  <td>{book.bookId}</td>
                   <td>{book.title}</td>
                   <td>{book.author}</td>
                   <td>

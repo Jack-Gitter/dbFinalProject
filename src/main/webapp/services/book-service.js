@@ -20,6 +20,6 @@ const deleteBook = (bookId) =>
   fetch(`${DELETE_BOOK_URL}/${bookId}`)
 
 const updateBook = (book) =>
-  fetch(`${UPDATE_BOOK}/${book.id}/title/${book.title}`)
+  fetch(`${UPDATE_BOOK}/${book.bookId}/title/${book.title}`)
     .then(response => response.json())
 

@@ -14,7 +14,7 @@ class BookEditor extends React.Component {
   }
 
   saveBook = () =>
-    renameBook(this.state.book)
+    updateBook(this.state.book)
 
   render() {
     return(

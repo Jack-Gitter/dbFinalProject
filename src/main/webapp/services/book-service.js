@@ -1,6 +1,6 @@
 const FIND_ALL_BOOKS  = "http://localhost:8080/findAllBooks"
 const FIND_BOOK_BY_ID = "http://localhost:8080/findBookById"
-const CREATE_BOOK_URL = "http://localhost:8080/createBook"
+const CREATE_BOOK_URL = "http://localhost:8080/addBook"
 const DELETE_BOOK_URL = "http://localhost:8080/deleteBook"
 const UPDATE_BOOK     = "http://localhost:8080/updateBook"
 

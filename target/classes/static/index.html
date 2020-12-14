@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>Home</title>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        rel="stylesheet"/>
 </head>
 <body>
 <div class="container">
   <h1>Home</h1>
   <label for="user">Choose a user role:</label>
-
   <select name="user" id="user">
-    <option value="volvo">Member</option>
-    <option value="saab">Librarian</option>
+    <option value="member">Member</option>
+    <option value="librarian">Librarian</option>
 
   </select>
   <ul class="list-group">
@@ -29,6 +29,9 @@
       <a href="schedule-list/schedule-list.html">Schedules</a>
     </li>
   </ul>
+  <script>
+    const e = document.getElementById("user");
+    const strUser = e.value;</script>
 </div>
 </body>
 </html>

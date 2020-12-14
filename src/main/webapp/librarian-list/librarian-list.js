@@ -1,24 +1,24 @@
 
 
-class BookList extends React.Component {
+class LibrarianList extends React.Component {
   state = {
-    books: []
+    librarians: []
   }
 
-  findAllBooks = () =>
-      findAllBooks()
-      .then((books) => this.setState({books}))
+  findAllLibrarians = () =>
+      findAllLibrarians()
+      .then((librarians) => this.setState({librarians}))
 
-  createBook = () =>
-      createBook()
-      .then(() => this.findAllBooks())
+  createLibrarian = () =>
+      createLibrarian()
+      .then(() => this.findAllLibrarians())
 
-  deleteBook = (bookId) =>
-      deleteBook(bookId)
-      .then(() => this.findAllBooks())
+  deleteLibrarian = (librarianId) =>
+      deleteLibrarian(librarianId)
+      .then(() => this.findAllLibrarians())
 
   componentDidMount = () =>
-      this.findAllBooks()
+      this.findAllLibrarians()
 
   render() {
 
@@ -28,18 +28,18 @@ class BookList extends React.Component {
           <div className="container-fluid">
             <button
                 className="btn btn-success float-right"
-                onClick={() => this.createBook()}>
+                onClick={() => this.createLibrarian()}>
               Create
             </button>
             <a className="btn btn-danger float-right"
                href="../../index.html">
               Home
             </a>
-            <h1>Book List</h1>
+            <h1>Librarian List</h1>
             <table className="table">
               <thead>
               <tr>
-                <th>Book ID</th>
+                <th>Librarian ID</th>
                 <th>Title</th>
                 <th>Author</th>
                 <th>&nbsp;</th>
@@ -47,20 +47,20 @@ class BookList extends React.Component {
               </thead>
               <tbody>
               {
-                this.state.books.map(book =>
-                    <tr key={book.bookId}>
-                      <td>{book.bookId}</td>
-                      <td>{book.title}</td>
-                      <td>{book.author}</td>
+                this.state.librarians.map(librarian =>
+                    <tr key={librarian.librarianId}>
+                      <td>{librarian.librarianId}</td>
+                      <td>{librarian.title}</td>
+                      <td>{librarian.author}</td>
                       <td>
                         <button
                             id="delete" className="btn btn-danger float-right"
-                            onClick={() => this.deleteBook(book.bookId)}>
+                            onClick={() => this.deleteLibrarian(librarian.librarianId)}>
                           Delete
                         </button>
 
                         <a id="edit" className="btn btn-primary float-right"
-                           href={`../../book-editor/book-editor.html?bookId=${book.bookId}`}>
+                           href={`../../librarian-editor/librarian-editor.html?librarianId=${librarian.librarianId}`}>
                           Edit
                         </a>
 
@@ -80,18 +80,18 @@ class BookList extends React.Component {
           <div className="container-fluid">
             <button
                 className="btn btn-success float-right"
-                onClick={() => this.createBook()}>
+                onClick={() => this.createLibrarian()}>
               Create
             </button>
             <a className="btn btn-danger float-right"
                href="../../index.html">
               Home
             </a>
-            <h1>Book List</h1>
+            <h1>Librarian List</h1>
             <table className="table">
               <thead>
               <tr>
-                <th>Book ID</th>
+                <th>Librarian ID</th>
                 <th>Title</th>
                 <th>Author</th>
                 <th>&nbsp;</th>
@@ -99,11 +99,11 @@ class BookList extends React.Component {
               </thead>
               <tbody>
               {
-                this.state.books.map(book =>
-                    <tr key={book.bookId}>
-                      <td>{book.bookId}</td>
-                      <td>{book.title}</td>
-                      <td>{book.author}</td>
+                this.state.librarians.map(librarian =>
+                    <tr key={librarian.librarianId}>
+                      <td>{librarian.librarianId}</td>
+                      <td>{librarian.title}</td>
+                      <td>{librarian.author}</td>
                     </tr>
                 )
 
@@ -118,7 +118,7 @@ class BookList extends React.Component {
 }
 
 ReactDOM.render(
-    <BookList/>,
+    <LibrarianList/>,
     document.getElementById('root')
 )
 

@@ -2,7 +2,7 @@ const FIND_ALL_LIBRARIANS = "http://localhost:8080/findAlllibrarians"
 const FIND_LIBRARIAN_BY_ID = "http://localhost:8080/findlibrarianById"
 const CREATE_LIBRARIAN_URL = "http://localhost:8080/createlibrarian"
 const DELETE_LIBRARIAN_URL = "http://localhost:8080/deletelibrarian"
-const RENAME_LIBRARIAN_URL = "http://localhost:8080/renamelibrarian"
+const RENAME_LIBRARIAN_URL = "http://localhost:8080/updatelibrarian"
 
 const findAllLibrarians = () =>
   fetch(`${FIND_ALL_LIBRARIANS}`)

@@ -43,14 +43,18 @@ class BookList extends React.Component {
           <tbody>
           {
             this.state.books.map(book =>
-                <tr key={book.bookId}>
+                <tr key={book.id}>
                   <td>{book.id}</td>
                   <td>{book.title}</td>
                   <td>{book.author}</td>
-
                   <td>
-                    <a className="btn btn-primary"
-                       href={`../../book-editor/book-editor.html?bookId=${book.bookId}`}>
+                    <button
+                        className="btn btn-danger float-right"
+                        onClick={() => this.deleteBook(book.id)}>
+                      Delete
+                    </button>
+                    <a className="btn btn-primary float-right"
+                       href={`../../book-editor/book-editor.html?bookId=${book.id}`}>
                       Edit
                     </a>
                   </td>

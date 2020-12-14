@@ -1,4 +1,4 @@
 ReactDOM.render(
-  <CourseList />,
+  <BookList />,
   document.getElementById('root')
 )

@@ -22,5 +22,5 @@ class BookList extends React.Component {
 }
 
 ReactDOM.render(
-    <BookList/>, document.getElementById("root");
+    <BookList/>, document.getElementById("root")
 )

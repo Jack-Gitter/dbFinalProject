@@ -8,6 +8,7 @@ class BookEditor extends React.Component {
     findBookById(id)
       .then(book => this.setState({book}))
 
+
   componentDidMount = () => {
     const id = window.location.search.split("=")[1]
     this.findBookById(id)

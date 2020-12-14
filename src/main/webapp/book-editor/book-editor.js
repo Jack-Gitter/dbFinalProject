@@ -20,7 +20,7 @@ class BookEditor extends React.Component {
     return(
       <div className="container">
         <h1>Book Editor {this.state.book.title}</h1>
-        <input className="form-control" readOnly={true} value={this.state.book.id}/>
+        <input className="form-control" readOnly={true} value={this.state.book.bookId}/>
         <input
           onChange={(event) => this.setState({
             book: {

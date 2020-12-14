@@ -61,5 +61,9 @@ public class MemberDao {
     b.setMember(null);
     return memberRepository.save(m);
   }
-  // return a book from a member
+
+  @GetMapping("/findMemberById/{mid}")
+  public Member findMemberById(@PathVariable(name = "mid") int mid) {
+    return memberRepository.findById(mid).get();
+  }
 }

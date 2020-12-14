@@ -49,6 +49,11 @@ public class BookDao {
     return bookRepository.save(b);
   }
 
+  @GetMapping("findBookById/{bid}")
+  public Book findBookById(@PathVariable(name = "bid") int bid) {
+    return bookRepository.findById(bid).get();
+  }
+
 
 
 }

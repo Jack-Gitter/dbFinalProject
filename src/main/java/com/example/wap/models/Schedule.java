@@ -33,6 +33,17 @@ public class Schedule {
   @OneToMany(mappedBy = "sid")
   List<LibrarianSchedule> librarianSchedules;
 
+
+  private int day;
+
+  private int month;
+
+  private int year;
+
+  public void setDay(int day, int month, int year) {
+    this.day = new Date(year-1900, month-1, day);
+  }
+
   public int getScheduleId() {
     return scheduleId;
   }

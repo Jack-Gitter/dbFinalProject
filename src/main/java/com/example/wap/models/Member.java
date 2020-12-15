@@ -11,9 +11,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
+
 @Entity
 @Table(name="members")
 public class Member {
+
 
 
   public Member(int lcid) {
@@ -33,6 +35,16 @@ public class Member {
 
   @Column(name="DOB")
   private Date dob;
+
+  private int day;
+
+  private int month;
+
+  private int year;
+
+  public void setDob(int day, int month, int year) {
+    this.dob = new Date(year-1900, month-1, day);
+  }
 
   @OneToMany(mappedBy = "member")
   private List<Book> books;

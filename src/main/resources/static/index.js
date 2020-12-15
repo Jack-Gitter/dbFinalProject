@@ -42,6 +42,9 @@ class Index extends React.Component {
               <li className="list-group-item">
                 <a href="schedule-list/schedule-list.html">Schedules</a>
               </li>
+              <li className="list-group-item">
+                <a href="librarianschedule-list/librarianschedule-list.html">Schedule-Librarian Mapping</a>
+              </li>
             </ul>
           </div>
       )

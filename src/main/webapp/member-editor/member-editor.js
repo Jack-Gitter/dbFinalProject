@@ -17,14 +17,18 @@ class MemberEditor extends React.Component {
   saveMemberName = () =>
     updateMemberName(this.state.member)
 
-  saveMemberDob = () =>
-      updateMemberDob(this.state.member)
+  saveMemberDay = () =>
+      updateMemberDay(this.state.member)
+  saveMemberMonth = () =>
+      updateMemberDay(this.state.member)
+  saveMemberYear = () =>
+      updateMemberDay(this.state.member)
 
   render() {
     return(
       <div className="container">
         <h1>Member Editor {this.state.member.name}</h1>
-        <input className="form-control" readOnly={true} value={this.state.member.libraryCardId}/>
+        <input className="form-control" readOnly={true} value={this.state.member.memberId}/>
         <div>
         <label>Name</label>
         <input
@@ -40,25 +44,57 @@ class MemberEditor extends React.Component {
             Save
           </button>
         </div>
+        <label>Date of Birth</label>
         <div>
-        <label>Date Of Birth</label>
-        <input
-            onChange={(event) => this.setState({
-              member: {
-                ...this.state.member,
-                dob: event.target.value
-              }
-            })}
-            className="form-control"
-            value={this.state.member.dob}/>
-        <button onClick={this.saveMemberDob}>
-          Save
-        </button>
+          <label>Day</label>
+          <input
+              onChange={(event) => this.setState({
+                member: {
+                  ...this.state.member,
+                  day: event.target.value
+                }
+              })}
+              className="form-control"
+              value={this.state.member.day}/>
+          <button onClick={this.saveMemberDay}>
+            Save
+          </button>
+        </div>
+        <div>
+          <label>Month</label>
+          <input
+              onChange={(event) => this.setState({
+                member: {
+                  ...this.state.member,
+                  month: event.target.value
+                }
+              })}
+              className="form-control"
+              value={this.state.member.month}/>
+          <button onClick={this.saveMemberMonth}>
+            Save
+          </button>
+        </div>
+        <div>
+          <label>Year</label>
+          <input
+              onChange={(event) => this.setState({
+                member: {
+                  ...this.state.member,
+                  year: event.target.value
+                }
+              })}
+              className="form-control"
+              value={this.state.member.year}/>
+          <button onClick={this.saveMemberYear}>
+            Save
+          </button>
         </div>
           <a href="../member-list/member-list.html">
             Done
           </a>
       </div>
+
     )
   }
 }

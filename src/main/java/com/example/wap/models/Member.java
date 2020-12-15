@@ -38,12 +38,42 @@ public class Member {
 
   private int day;
 
+  public int getDay() {
+    return day;
+  }
+
+  public void setDay(int day) {
+    this.day = day;
+    this.setDob(day,this.month,this.year);
+
+  }
+
+  public int getMonth() {
+    return month;
+  }
+
+  public void setMonth(int month) {
+    this.month = month;
+    this.setDob(this.day,month,this.year);
+
+  }
+
+  public int getYear() {
+    return year;
+  }
+
+  public void setYear(int year) {
+    this.year = year;
+    this.setDob(this.day,this.month,year);
+
+  }
+
   private int month;
 
   private int year;
 
   public void setDob(int day, int month, int year) {
-    this.dob = new Date(year-1900, month-1, day);
+    this.dob = new Date(year-1900, month-1, day-1);
   }
 
   @OneToMany(mappedBy = "member")

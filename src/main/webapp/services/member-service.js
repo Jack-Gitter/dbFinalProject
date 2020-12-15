@@ -24,13 +24,13 @@ const updateMemberName = (member) =>
     .then(response => response.json())
 
 const updateMemberDay = (member) =>
-    fetch(`${UPDATE_MEMBER}/${member.libraryCardId}/day/${member.dob}`)
+    fetch(`${UPDATE_MEMBER}/${member.libraryCardId}/Day/${member.day}`)
     .then(response => response.json())
 
 const updateMemberMonth = (member) =>
-    fetch(`${UPDATE_MEMBER}/${member.libraryCardId}/month/${member.dob}`)
+    fetch(`${UPDATE_MEMBER}/${member.libraryCardId}/Month/${member.month}`)
     .then(response => response.json())
 
 const updateMemberYear = (member) =>
-    fetch(`${UPDATE_MEMBER}/${member.libraryCardId}/year/${member.dob}`)
+    fetch(`${UPDATE_MEMBER}/${member.libraryCardId}/Year/${member.year}`)
     .then(response => response.json())

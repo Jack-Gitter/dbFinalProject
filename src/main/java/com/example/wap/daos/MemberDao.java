@@ -58,24 +58,21 @@ public class MemberDao {
   @GetMapping("setMember/{lcid}/dob/Day/{day}")
   public Member setMemberDOBDay(@PathVariable(name = "id") int id, @PathVariable(name = "day") int day) {
     Member m = memberRepository.findById(id).get();
-    Date d = m.getDob();
-    d.setDate(day);
+    m.setDay(day);
     return memberRepository.save(m);
   }
 
   @GetMapping("setMember/{lcid}/dob/Month/{month}")
   public Member setMemberDOBMonth(@PathVariable(name = "id") int id, @PathVariable(name = "month") int month) {
     Member m = memberRepository.findById(id).get();
-    Date d = m.getDob();
-    d.setYear(month-1);
+    m.setMonth(month);
     return memberRepository.save(m);
   }
 
   @GetMapping("setMember/{lcid}/dob/Year/{year}")
   public Member setMemberDOBYear(@PathVariable(name = "id") int id, @PathVariable(name = "year") int year) {
     Member m = memberRepository.findById(id).get();
-    Date d = m.getDob();
-    d.setYear(year-1900);
+    m.setYear(year);
     return memberRepository.save(m);
   }
 

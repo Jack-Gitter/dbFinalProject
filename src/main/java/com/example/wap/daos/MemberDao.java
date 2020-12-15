@@ -55,6 +55,31 @@ public class MemberDao {
     return memberRepository.save(m);
   }
 
+  @GetMapping("setMember/{lcid}/dob/Day/{day}")
+  public Member setMemberDOBDay(@PathVariable(name = "id") int id, @PathVariable(name = "day") int day) {
+    Member m = memberRepository.findById(id).get();
+    Date d = m.getDob();
+    d.setDate(day);
+    return memberRepository.save(m);
+  }
+
+  @GetMapping("setMember/{lcid}/dob/Month/{month}")
+  public Member setMemberDOBMonth(@PathVariable(name = "id") int id, @PathVariable(name = "month") int month) {
+    Member m = memberRepository.findById(id).get();
+    Date d = m.getDob();
+    d.setYear(month-1);
+    return memberRepository.save(m);
+  }
+
+  @GetMapping("setMember/{lcid}/dob/Year/{year}")
+  public Member setMemberDOBYear(@PathVariable(name = "id") int id, @PathVariable(name = "year") int year) {
+    Member m = memberRepository.findById(id).get();
+    Date d = m.getDob();
+    d.setYear(year-1900);
+    return memberRepository.save(m);
+  }
+
+
   @GetMapping("/addBook/{bid}/ToMember/{lcid}")
   public Member addBookToMember(@PathVariable("bid") int bid, @PathVariable("lcid") int lcid) {
     Member m = memberRepository.findById(lcid).get();

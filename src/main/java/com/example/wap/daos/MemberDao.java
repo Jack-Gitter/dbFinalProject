@@ -4,9 +4,10 @@ package com.example.wap.daos;
 import com.example.wap.models.Book;
 import com.example.wap.models.LibrarianSchedule;
 import com.example.wap.models.Member;
+import com.example.wap.models.Schedule;
 import com.example.wap.repositories.BookRepository;
 import com.example.wap.repositories.MemberRepository;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,9 +30,11 @@ public class MemberDao {
   }
 
   @GetMapping("/addMember")
+
   public Member addMember() {
     Member m = new Member();
     return this.memberRepository.save(m);
+
   }
 
   @GetMapping("/updateMember/{lcid}/Name/{name}")
@@ -41,10 +44,14 @@ public class MemberDao {
     return memberRepository.save(m);
   }
 
-  @GetMapping("/updateMember/{lcid}/dob/{dob}")
-  public Member updateMemberDob(@PathVariable("lcid") int lcid, @PathVariable("dob") Date dob) {
+  @GetMapping("/updateMember/{lcid}/dob/Day/{day}/Month/{month}/Year/{year}")
+  public Member updateMemberDob(@PathVariable("lcid") int lcid, @PathVariable("day") int day,
+      @PathVariable(name = "month") int month, @PathVariable(name = "year") int year) {
     Member m = memberRepository.findById(lcid).get();
-    m.setDob(dob);
+    year -= 1900;
+
+    java.sql.Date d = new Date(year, month-1, day);
+    m.setDob(d);
     return memberRepository.save(m);
   }
 

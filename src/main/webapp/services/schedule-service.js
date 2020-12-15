@@ -20,15 +20,15 @@ const deleteSchedule = (id) =>
     fetch(`${DELETE_SCHEDULE_URL}/${id}`)
 
 const updateScheduleDay = (schedule) =>
-    fetch(`${UPDATE_SCHEDULE_URL}/${schedule.scheduleId}/day/${schedule.day}`)
+    fetch(`${UPDATE_SCHEDULE_URL}/${schedule.scheduleId}/Day/${schedule.d}`)
     .then(response => response.json())
 
 const updateScheduleMonth = (schedule) =>
-    fetch(`${UPDATE_SCHEDULE_URL}/${schedule.scheduleId}/month/${schedule.month}`)
+    fetch(`${UPDATE_SCHEDULE_URL}/${schedule.scheduleId}/Month/${schedule.month}`)
     .then(response => response.json())
 
 const updateScheduleYear = (schedule) =>
-    fetch(`${UPDATE_SCHEDULE_URL}/${schedule.scheduleId}/year/${schedule.year}`)
+    fetch(`${UPDATE_SCHEDULE_URL}/${schedule.scheduleId}/Year/${schedule.year}`)
     .then(response => response.json())
 
 const updateScheduleStartHour = (schedule) =>

@@ -38,11 +38,11 @@ class ScheduleEditor extends React.Component {
           onChange={(event) => this.setState({
             schedule: {
               ...this.state.schedule,
-              day: event.target.value
+              d: event.target.value
             }
           })}
           className="form-control"
-          value={this.state.schedule.day}/>
+          value={this.state.schedule.d}/>
           <button onClick={this.saveScheduleDay}>
             Save
           </button>
@@ -53,7 +53,7 @@ class ScheduleEditor extends React.Component {
               onChange={(event) => this.setState({
                 schedule: {
                   ...this.state.schedule,
-                  day: event.target.value
+                  month: event.target.value
                 }
               })}
               className="form-control"
@@ -68,7 +68,7 @@ class ScheduleEditor extends React.Component {
               onChange={(event) => this.setState({
                 schedule: {
                   ...this.state.schedule,
-                  day: event.target.value
+                  year: event.target.value
                 }
               })}
               className="form-control"

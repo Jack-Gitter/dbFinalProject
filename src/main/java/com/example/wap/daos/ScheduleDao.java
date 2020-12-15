@@ -39,24 +39,21 @@ public class ScheduleDao {
   @GetMapping("setSchedule/{id}/Year/{year}")
   public Schedule setScheduleYear(@PathVariable(name = "id") int id, @PathVariable(name = "year") int year) {
     Schedule s = scheduleRepository.findById(id).get();
-    Date d = s.getDay();
-    d.setYear(year-1900);
+    s.setYear(year);
     return scheduleRepository.save(s);
   }
 
   @GetMapping("setSchedule/{id}/Month/{month}")
   public Schedule setScheduleMonth(@PathVariable(name = "id") int id, @PathVariable(name = "month") int month) {
     Schedule s = scheduleRepository.findById(id).get();
-    Date d = s.getDay();
-    d.setMonth(month-1);
+    s.setMonth(month);
     return scheduleRepository.save(s);
   }
 
   @GetMapping("setSchedule/{id}/Day/{day}")
   public Schedule setScheduleDay(@PathVariable(name = "id") int id, @PathVariable(name = "day") int day) {
     Schedule s = scheduleRepository.findById(id).get();
-    Date d = s.getDay();
-    d.setDate(day);
+    s.setD(day);
     return scheduleRepository.save(s);
   }
 

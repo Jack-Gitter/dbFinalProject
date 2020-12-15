@@ -34,14 +34,41 @@ public class Schedule {
   List<LibrarianSchedule> librarianSchedules;
 
 
-  private int day;
+  public int getD() {
+    return d;
+  }
+
+  public void setD(int d) {
+    this.d = d;
+    this.setDay(d,this.month,this.year);
+  }
+
+  public int getMonth() {
+    return month;
+  }
+
+  public void setMonth(int month) {
+    this.month = month;
+    this.setDay(this.d,month,this.year);
+  }
+
+  public int getYear() {
+    return year;
+  }
+
+  public void setYear(int year) {
+    this.year = year;
+    this.setDay(this.d,this.month,year);
+  }
+
+  private int d;
 
   private int month;
 
   private int year;
 
   public void setDay(int day, int month, int year) {
-    this.day = new Date(year-1900, month-1, day);
+    this.day = new Date(year-1900, month-1, day-1);
   }
 
   public int getScheduleId() {

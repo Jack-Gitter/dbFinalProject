@@ -2,7 +2,6 @@ package com.example.wap.daos;
 
 import com.example.wap.models.Librarian;
 import com.example.wap.models.LibrarianSchedule;
-import com.example.wap.models.LibrarianScheduleId;
 import com.example.wap.repositories.LibrarianRepository;
 import com.example.wap.repositories.LibrarianScheduleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +31,7 @@ public class LibrarianDao {
   @GetMapping("removeLibrarian/{id}")
   public void removeLibrarianById(@PathVariable(name = "id") int id) {
     Iterable<LibrarianSchedule> librarianSchedules = librarianScheduleRepository.findAll();
-    for (LibrarianSchedule schedule: librarianSchedules) {
+    for (LibrarianSchedule schedule : librarianSchedules) {
       if (schedule.getLibrarianId() == id) {
         librarianScheduleRepository.delete(schedule);
       }
@@ -47,21 +46,19 @@ public class LibrarianDao {
   }
 
   @GetMapping("/setLibrarian/{id}/Salary/{salary}")
-  public Librarian setLibrarianSalary(@PathVariable(name = "id") int id, @PathVariable(name = "salary") int salary) {
+  public Librarian setLibrarianSalary(@PathVariable(name = "id") int id,
+      @PathVariable(name = "salary") int salary) {
     Librarian librarian = librarianRepository.findById(id).get();
     librarian.setSalary(salary);
     return librarianRepository.save(librarian);
   }
-
   @GetMapping("/setLibrarian/{id}/Name/{name}")
-  public Librarian setLibrarianName(@PathVariable(name = "id") int id, @PathVariable(name = "salary") String name) {
+  public Librarian setLibrarianName(@PathVariable(name = "id") int id,
+      @PathVariable(name = "name") String name) {
     Librarian librarian = librarianRepository.findById(id).get();
     librarian.setName(name);
     return librarianRepository.save(librarian);
   }
-
-
-
 
 
 }

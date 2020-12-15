@@ -5,37 +5,56 @@ class LibrarianEditor extends React.Component {
   }
 
   findLibrarianById = (id) =>{
-    debugger
-    findLibrarianById1(id)
+    findLibrarianById(id)
       .then(librarian => this.setState({librarian}))}
 
 
   componentDidMount = () => {
     const id = window.location.search.split("=")[1]
-    debugger
     this.findLibrarianById(id)
   }
 
-  saveLibrarian = () =>
-    updateLibrarian(this.state.librarian)
+  saveLibrarianName = () =>
+    updateLibrarianName(this.state.librarian)
+
+  saveLibrarianSalary = () =>
+      updateLibrarianSalary(this.state.librarian)
 
   render() {
     return(
       <div className="container">
-        <h1>Librarian Editor {this.state.librarian.title}</h1>
+        <h1>Librarian Editor {this.state.librarian.name}</h1>
         <input className="form-control" readOnly={true} value={this.state.librarian.librarianId}/>
+        <div>
+        <label>Name</label>
         <input
           onChange={(event) => this.setState({
             librarian: {
               ...this.state.librarian,
-              title: event.target.value
+              name: event.target.value
             }
           })}
           className="form-control"
-          value={this.state.librarian.title}/>
-          <button onClick={this.saveLibrarian}>
+          value={this.state.librarian.name}/>
+          <button onClick={this.saveLibrarianName}>
             Save
           </button>
+        </div>
+        <div>
+        <label>Salary</label>
+        <input
+            onChange={(event) => this.setState({
+              librarian: {
+                ...this.state.librarian,
+                salary: event.target.value
+              }
+            })}
+            className="form-control"
+            value={this.state.librarian.salary}/>
+        <button onClick={this.saveLibrarianSalary}>
+          Save
+        </button>
+        </div>
           <a href="../librarian-list/librarian-list.html">
             Done
           </a>

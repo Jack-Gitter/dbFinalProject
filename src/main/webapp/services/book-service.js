@@ -8,7 +8,7 @@ const findAllBooks = () =>
   fetch(`${FIND_ALL_BOOKS}`)
     .then(response => response.json())
 
-const findBookById1 = (bookId) =>
+const findBookById = (bookId) =>
   fetch(`${FIND_BOOK_BY_ID}/${bookId}`)
     .then(response => response.json())
 
@@ -19,7 +19,11 @@ const createBook = (book) =>
 const deleteBook = (bookId) =>
   fetch(`${DELETE_BOOK_URL}/${bookId}`)
 
-const updateBook = (book) =>
+const updateBookTitle = (book) =>
   fetch(`${UPDATE_BOOK}/${book.bookId}/title/${book.title}`)
+    .then(response => response.json())
+
+const updateBookAuthor = (book) =>
+    fetch(`${UPDATE_BOOK}/${book.bookId}/author/${book.author}`)
     .then(response => response.json())
 

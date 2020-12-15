@@ -12,7 +12,7 @@ class Index extends React.Component {
 
 
 
-  handleSubmit(event) {
+    handleSubmit(event) {
     console.log("User is: " + this.state.value);
     event.preventDefault();
   }

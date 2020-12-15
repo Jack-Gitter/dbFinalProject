@@ -1,24 +1,24 @@
 
 
-class LibrarianList extends React.Component {
+class MemberList extends React.Component {
   state = {
-    librarians: []
+    members: []
   }
 
-  findAllLibrarians = () =>
-      findAllLibrarians()
-      .then((librarians) => this.setState({librarians}))
+  findAllMembers = () =>
+      findAllMembers()
+      .then((members) => this.setState({members}))
 
-  createLibrarian = () =>
-      createLibrarian()
-      .then(() => this.findAllLibrarians())
+  createMember = () =>
+      createMember()
+      .then(() => this.findAllMembers())
 
-  deleteLibrarian = (librarianId) =>
-      deleteLibrarian(librarianId)
-      .then(() => this.findAllLibrarians())
+  deleteMember = (libraryCardId) =>
+      deleteMember(libraryCardId)
+      .then(() => this.findAllMembers())
 
   componentDidMount = () =>
-      this.findAllLibrarians()
+      this.findAllMembers()
 
   render() {
 
@@ -28,41 +28,41 @@ class LibrarianList extends React.Component {
           <div className="container-fluid">
             <button
                 className="btn btn-success float-right"
-                onClick={() => this.createLibrarian()}>
+                onClick={() => this.createMember()}>
               Create
             </button>
             <a className="btn btn-danger float-right"
                href="../../index.html">
               Home
             </a>
-            <h1>Librarian List</h1>
+            <h1>Member List</h1>
             <table className="table">
               <thead>
               <tr>
-                <th>Librarian ID</th>
+                <th>Library Card ID</th>
                 <th>Name</th>
-                <th>Salary</th>
-                <th>Schedule</th>
+                <th>Date of Birth</th>
+                <th>Books</th>
                 <th>&nbsp;</th>
               </tr>
               </thead>
               <tbody>
               {
-                this.state.librarians.map(librarian =>
-                    <tr key={librarian.librarianId}>
-                      <td>{librarian.librarianId}</td>
-                      <td>{librarian.name}</td>
-                      <td>{librarian.salary}</td>
-                      <td>{librarian.librarianSchedules}</td>
+                this.state.members.map(member =>
+                    <tr key={member.libraryCardId}>
+                      <td>{member.libraryCardId}</td>
+                      <td>{member.name}</td>
+                      <td>{member.dob}</td>
+                      <td>{member.books}</td>
                       <td>
                         <button
                             id="delete" className="btn btn-danger float-right"
-                            onClick={() => this.deleteLibrarian(librarian.librarianId)}>
+                            onClick={() => this.deleteMember(member.libraryCardId)}>
                           Delete
                         </button>
 
                         <a id="edit" className="btn btn-primary float-right"
-                           href={`../../librarian-editor/librarian-editor.html?librarianId=${librarian.librarianId}`}>
+                           href={`../../member-editor/member-editor.html?lcid=${member.libraryCardId}`}>
                           Edit
                         </a>
 
@@ -83,7 +83,7 @@ class LibrarianList extends React.Component {
 }
 
 ReactDOM.render(
-    <LibrarianList/>,
+    <MemberList/>,
     document.getElementById('root')
 )
 

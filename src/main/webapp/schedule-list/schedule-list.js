@@ -1,5 +1,3 @@
-
-
 class ScheduleList extends React.Component {
   state = {
     schedules: []
@@ -22,7 +20,7 @@ class ScheduleList extends React.Component {
 
   render() {
 
-
+    if (localStorage.getItem("user") === "librarian") {
       return (
 
           <div className="container-fluid">
@@ -57,7 +55,8 @@ class ScheduleList extends React.Component {
                       <td>
                         <button
                             id="delete" className="btn btn-danger float-right"
-                            onClick={() => this.deleteSchedule(schedule.scheduleId)}>
+                            onClick={() => this.deleteSchedule(
+                                schedule.scheduleId)}>
                           Delete
                         </button>
 
@@ -77,7 +76,44 @@ class ScheduleList extends React.Component {
           </div>
 
       )
+    } else {
+      return (
 
+          <div className="container-fluid">
+            <a className="btn btn-danger float-right"
+               href="../../index.html">
+              Home
+            </a>
+            <h1>Schedule List</h1>
+            <table className="table">
+              <thead>
+              <tr>
+                <th>Schedule ID</th>
+                <th>Day</th>
+                <th>Start Hour</th>
+                <th>End Hour</th>
+                <th>&nbsp;</th>
+              </tr>
+              </thead>
+              <tbody>
+              {
+                this.state.schedules.map(schedule =>
+                    <tr key={schedule.scheduleId}>
+                      <td>{schedule.scheduleId}</td>
+                      <td>{schedule.day}</td>
+                      <td>{schedule.startHour}</td>
+                      <td>{schedule.endHour}</td>
+
+                    </tr>
+                )
+
+              }
+              </tbody>
+            </table>
+          </div>
+
+      )
+    }
 
   }
 }

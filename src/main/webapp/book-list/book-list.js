@@ -1,5 +1,4 @@
 class BookList extends React.Component {
-  userStr;
   state = {
     books: [],
   }
@@ -76,11 +75,6 @@ class BookList extends React.Component {
       )
     } else {
       return (<div className="container-fluid">
-        <button
-            className="btn btn-success float-right"
-            onClick={() => this.createBook()}>
-          Create
-        </button>
         <a className="btn btn-danger float-right"
            href="../../index.html">
           Home

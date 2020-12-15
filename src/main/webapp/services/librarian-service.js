@@ -1,8 +1,8 @@
 const FIND_ALL_LIBRARIANS = "http://localhost:8080/findAllLibrarians"
 const FIND_LIBRARIAN_BY_ID = "http://localhost:8080/findLibrarianById"
-const CREATE_LIBRARIAN_URL = "http://localhost:8080/createLibrarian"
+const CREATE_LIBRARIAN_URL = "http://localhost:8080/addLibrarian"
 const DELETE_LIBRARIAN_URL = "http://localhost:8080/deleteLibrarian"
-const RENAME_LIBRARIAN_URL = "http://localhost:8080/updateLibrarian"
+const UPDATE_LIBRARIAN_URL = "http://localhost:8080/updateLibrarian"
 
 const findAllLibrarians = () =>
   fetch(`${FIND_ALL_LIBRARIANS}`)
@@ -19,6 +19,6 @@ const createLibrarian = () =>
 const deleteLibrarian = (id) =>
   fetch(`${DELETE_LIBRARIAN_URL}/${id}`)
 
-const renameLibrarian = (name) =>
-    fetch(`${RENAME_LIBRARIAN_URL}/${name}`)
-        .then(response => response.json())
+const updateBook = (librarian) =>
+    fetch(`${UPDATE_BOOK}/${librarian.librarianId}/title/${librarian.name}`)
+    .then(response => response.json())

@@ -1,18 +1,16 @@
+
 class Index extends React.Component {
+  userStr;
 
   constructor(props) {
     super(props);
     this.state = {value: "member"};
-    global.userStr = this.state.value
-
-    // this.handleChange = this.handleChange.bind(this);
+     this.userStr = this.state.value;
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
 
-  //   handleChange(event) {
-  //     this.setState({ value: event.target.value });
-  //   }
+
 
   handleSubmit(event) {
     console.log("User is: " + this.state.value);
@@ -21,7 +19,7 @@ class Index extends React.Component {
 
   handleChange = event => {
     this.setState({value: event.target.value});
-    this.userStr = this.state.value
+    this.userStr = this.state.value;
   };
 
   render() {
@@ -56,9 +54,18 @@ class Index extends React.Component {
     )
   }
 
+
+  
+
+
 }
+
+
+
 
 ReactDOM.render(
     <Index/>,
     document.getElementById('root')
 )
+
+

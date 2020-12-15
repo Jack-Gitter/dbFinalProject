@@ -1,7 +1,10 @@
+
+import userStr from '/src/main/resources/static/index';
 class BookList extends React.Component {
+
   state = {
     books: [],
-    strUser: []
+    userStr: []
   }
 
   findAllBooks = () =>
@@ -20,7 +23,7 @@ class BookList extends React.Component {
       this.findAllBooks()
 
   render() {
-    if (this.userStr === "librarian") {
+    if (userStr === "librarian") {
       return (
 
           <div className="container-fluid">

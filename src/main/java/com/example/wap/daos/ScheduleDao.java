@@ -25,7 +25,7 @@ public class ScheduleDao {
     return scheduleRepository.findById(id).get();
   }
 
-  @GetMapping("/deleteScheduleById/{id}")
+  @GetMapping("/deleteSchedule/{id}")
   public void deleteScheduleById(@PathVariable(name = "id") int id) {
     scheduleRepository.deleteById(id);
   }
@@ -47,20 +47,20 @@ public class ScheduleDao {
       return scheduleRepository.save(s);
   }
 
-  @GetMapping("setSchedule/{id}/StartHour/{hour}/Minute/{minute}/Second/{second}")
-  public Schedule setScheduleTime(@PathVariable(name = "id") int id,
-      @PathVariable(name = "hour") int hour, @PathVariable(name = "minute") int minute, @PathVariable(name = "second") int second) {
+  @GetMapping("setSchedule/{id}/StartHour/{hour}")
+  public Schedule setScheduleStartTime(@PathVariable(name = "id") int id,
+      @PathVariable(name = "hour") int hour) {
     Schedule s = scheduleRepository.findById(id).get();
-    Time t = Time.valueOf(""+hour+":"+minute+":"+second);
+    Time t = Time.valueOf(""+hour+":00:00");
     s.setStartHour(t);
     return scheduleRepository.save(s);
   }
 
-  @GetMapping("setSchedule/{id}/EndHour/{hour}/Minute/{minute}/Second/{second}")
+  @GetMapping("setSchedule/{id}/EndHour/{hour}")
   public Schedule setScheduleEndTime(@PathVariable(name = "id") int id,
-      @PathVariable(name = "hour") int hour, @PathVariable(name = "minute") int minute, @PathVariable(name = "second") int second) {
+      @PathVariable(name = "hour") int hour) {
     Schedule s = scheduleRepository.findById(id).get();
-    Time t = Time.valueOf(""+hour+":"+minute+":"+second);
+    Time t = Time.valueOf(""+hour+":00:00");
     s.setEndHour(t);
     return scheduleRepository.save(s);
   }

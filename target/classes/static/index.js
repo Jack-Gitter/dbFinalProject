@@ -5,7 +5,7 @@ class Index extends React.Component {
   constructor(props) {
     super(props);
     this.state = {value: "member"};
-     this.userStr = this.state.value;
+    localStorage.setItem("user",this.state.value);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -13,12 +13,12 @@ class Index extends React.Component {
 
 
     handleSubmit(event) {
-    console.log("User is: " + this.state.value);
+    console.log("User is: " + localStorage.getItem("user"));
     event.preventDefault();
   }
 
   handleChange = event => {
-    this.setState({value: event.target.value});
+   localStorage.setItem("user",event.target.value);
     this.userStr = this.state.value;
   };
 

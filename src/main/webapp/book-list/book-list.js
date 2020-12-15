@@ -2,7 +2,6 @@ class BookList extends React.Component {
   userStr;
   state = {
     books: [],
-    userStr: []
   }
 
   findAllBooks = () =>
@@ -21,60 +20,97 @@ class BookList extends React.Component {
       this.findAllBooks()
 
   render() {
+    if (localStorage.getItem("user") === "librarian") {
 
-    return (
+      return (
 
-        <div className="container-fluid">
-          <button
-              className="btn btn-success float-right"
-              onClick={() => this.createBook()}>
-            Create
-          </button>
-          <a className="btn btn-danger float-right"
-             href="../../index.html">
-            Home
-          </a>
-          <h1>Book List</h1>
-          <table className="table">
-            <thead>
-            <tr>
-              <th>Book ID</th>
-              <th>Title</th>
-              <th>Author</th>
-              <th>&nbsp;</th>
-            </tr>
-            </thead>
-            <tbody>
-            {
-              this.state.books.map(book =>
-                  <tr key={book.bookId}>
-                    <td>{book.bookId}</td>
-                    <td>{book.title}</td>
-                    <td>{book.author}</td>
-                    <td>
-                      <button
-                          id="delete" className="btn btn-danger float-right"
-                          onClick={() => this.deleteBook(book.bookId)}>
-                        Delete
-                      </button>
+          <div className="container-fluid">
+            <button
+                className="btn btn-success float-right"
+                onClick={() => this.createBook()}>
+              Create
+            </button>
+            <a className="btn btn-danger float-right"
+               href="../../index.html">
+              Home
+            </a>
+            <h1>Book List</h1>
+            <table className="table">
+              <thead>
+              <tr>
+                <th>Book ID</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>&nbsp;</th>
+              </tr>
+              </thead>
+              <tbody>
+              {
+                this.state.books.map(book =>
+                    <tr key={book.bookId}>
+                      <td>{book.bookId}</td>
+                      <td>{book.title}</td>
+                      <td>{book.author}</td>
+                      <td>
+                        <button
+                            id="delete" className="btn btn-danger float-right"
+                            onClick={() => this.deleteBook(book.bookId)}>
+                          Delete
+                        </button>
 
-                      <a id="edit" className="btn btn-primary float-right"
-                         href={`../../book-editor/book-editor.html?bookId=${book.bookId}`}>
-                        Edit
-                      </a>
+                        <a id="edit" className="btn btn-primary float-right"
+                           href={`../../book-editor/book-editor.html?bookId=${book.bookId}`}>
+                          Edit
+                        </a>
 
 
-                    </td>
-                  </tr>
-              )
+                      </td>
+                    </tr>
+                )
 
-            }
-            </tbody>
-          </table>
-        </div>
+              }
+              </tbody>
+            </table>
+          </div>
 
-    )
+      )
+    } else {
+      return (<div className="container-fluid">
+        <button
+            className="btn btn-success float-right"
+            onClick={() => this.createBook()}>
+          Create
+        </button>
+        <a className="btn btn-danger float-right"
+           href="../../index.html">
+          Home
+        </a>
+        <h1>Book List</h1>
+        <table className="table">
+          <thead>
+          <tr>
+            <th>Book ID</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>&nbsp;</th>
+          </tr>
+          </thead>
+          <tbody>
+          {
+            this.state.books.map(book =>
+                <tr key={book.bookId}>
+                  <td>{book.bookId}</td>
+                  <td>{book.title}</td>
+                  <td>{book.author}</td>
+                </tr>
+            )
 
+          }
+          </tbody>
+        </table>
+      </div>)
+
+    }
   }
 }
 

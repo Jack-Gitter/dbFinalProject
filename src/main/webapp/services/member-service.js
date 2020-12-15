@@ -23,6 +23,14 @@ const updateMemberName = (member) =>
   fetch(`${UPDATE_MEMBER}/${member.libraryCardId}/Name/${member.name}`)
     .then(response => response.json())
 
-const updateMemberDob = (member) =>
-    fetch(`${UPDATE_MEMBER}/${member.libraryCardId}/dob/${member.dob}`)
+const updateMemberDay = (member) =>
+    fetch(`${UPDATE_MEMBER}/${member.libraryCardId}/day/${member.dob}`)
+    .then(response => response.json())
+
+const updateMemberMonth = (member) =>
+    fetch(`${UPDATE_MEMBER}/${member.libraryCardId}/month/${member.dob}`)
+    .then(response => response.json())
+
+const updateMemberYear = (member) =>
+    fetch(`${UPDATE_MEMBER}/${member.libraryCardId}/year/${member.dob}`)
     .then(response => response.json())

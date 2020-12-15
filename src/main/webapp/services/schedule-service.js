@@ -19,6 +19,18 @@ const createSchedule = () =>
 const deleteSchedule = (id) =>
     fetch(`${DELETE_SCHEDULE_URL}/${id}`)
 
+const updateScheduleDay = (schedule) =>
+    fetch(`${UPDATE_SCHEDULE_URL}/${schedule.scheduleId}/day/${schedule.day}`)
+    .then(response => response.json())
+
+const updateScheduleMonth = (schedule) =>
+    fetch(`${UPDATE_SCHEDULE_URL}/${schedule.scheduleId}/month/${schedule.day}`)
+    .then(response => response.json())
+
+const updateScheduleYear = (schedule) =>
+    fetch(`${UPDATE_SCHEDULE_URL}/${schedule.scheduleId}/year/${schedule.day}`)
+    .then(response => response.json())
+
 const updateScheduleStartHour = (schedule) =>
     fetch(`${UPDATE_SCHEDULE_URL}/${schedule.scheduleId}/StartHour/${schedule.startHour}`)
     .then(response => response.json())

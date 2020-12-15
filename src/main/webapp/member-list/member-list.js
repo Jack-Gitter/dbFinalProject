@@ -53,7 +53,7 @@ class MemberList extends React.Component {
                       <td>{member.libraryCardId}</td>
                       <td>{member.name}</td>
                       <td>{member.dob}</td>
-                      <td>{member.books}</td>
+                      <td>{member.books.map(book => <div>{book.title}</div>)}</td>
                       <td>
                         <button
                             id="delete" className="btn btn-danger float-right"

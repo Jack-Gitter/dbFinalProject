@@ -24,11 +24,11 @@ const updateScheduleDay = (schedule) =>
     .then(response => response.json())
 
 const updateScheduleMonth = (schedule) =>
-    fetch(`${UPDATE_SCHEDULE_URL}/${schedule.scheduleId}/month/${schedule.day}`)
+    fetch(`${UPDATE_SCHEDULE_URL}/${schedule.scheduleId}/month/${schedule.month}`)
     .then(response => response.json())
 
 const updateScheduleYear = (schedule) =>
-    fetch(`${UPDATE_SCHEDULE_URL}/${schedule.scheduleId}/year/${schedule.day}`)
+    fetch(`${UPDATE_SCHEDULE_URL}/${schedule.scheduleId}/year/${schedule.year}`)
     .then(response => response.json())
 
 const updateScheduleStartHour = (schedule) =>

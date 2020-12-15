@@ -57,7 +57,7 @@ class ScheduleEditor extends React.Component {
                 }
               })}
               className="form-control"
-              value={this.state.schedule.day}/>
+              value={this.state.schedule.month}/>
           <button onClick={this.saveScheduleMonth}>
             Save
           </button>
@@ -72,7 +72,7 @@ class ScheduleEditor extends React.Component {
                 }
               })}
               className="form-control"
-              value={this.state.schedule.day}/>
+              value={this.state.schedule.year}/>
           <button onClick={this.saveScheduleYear}>
             Save
           </button>

@@ -2,7 +2,7 @@ package com.example.wap.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.sql.Time;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;

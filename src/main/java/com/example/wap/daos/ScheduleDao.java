@@ -25,7 +25,7 @@ public class ScheduleDao {
     return scheduleRepository.findById(id).get();
   }
 
-  @GetMapping("/deleteSchedule/{id}")
+  @GetMapping("/deleteScheduleById/{id}")
   public void deleteScheduleById(@PathVariable(name = "id") int id) {
     scheduleRepository.deleteById(id);
   }
@@ -36,31 +36,47 @@ public class ScheduleDao {
     return scheduleRepository.save(s);
   }
 
-  @GetMapping("/setSchedule/{id}/Year/{year}/Month/{month}/Day/{day}")
-  public Schedule setScheduleDay(@PathVariable(name = "id") int id, @PathVariable(name = "year") int year,
-      @PathVariable(name = "month") int month, @PathVariable(name = "day") int day) {
-      Schedule s = scheduleRepository.findById(id).get();
-      year -= 1900;
-
-      Date d = new Date(year, month-1, day);
-      s.setDay(d);
-      return scheduleRepository.save(s);
+  @GetMapping("setSchedule/{id}/Year/{year}")
+  public Schedule setScheduleYear(@PathVariable(name = "id") int id, @PathVariable(name = "year") int year) {
+    Schedule s = scheduleRepository.findById(id).get();
+    Date d = s.getDay();
+    d.setYear(year-1900);
+    return scheduleRepository.save(s);
   }
 
-  @GetMapping("setSchedule/{id}/StartHour/{hour}")
-  public Schedule setScheduleStartTime(@PathVariable(name = "id") int id,
-      @PathVariable(name = "hour") int hour) {
+  @GetMapping("setSchedule/{id}/Month/{month}")
+  public Schedule setScheduleMonth(@PathVariable(name = "id") int id, @PathVariable(name = "month") int month) {
     Schedule s = scheduleRepository.findById(id).get();
-    Time t = Time.valueOf(""+hour+":00:00");
+    Date d = s.getDay();
+    d.setMonth(month-1);
+    return scheduleRepository.save(s);
+  }
+
+  @GetMapping("setSchedule/{id}/Day/{day}")
+  public Schedule setScheduleDay(@PathVariable(name = "id") int id, @PathVariable(name = "day") int day) {
+    Schedule s = scheduleRepository.findById(id).get();
+    Date d = s.getDay();
+    d.setDate(day);
+    return scheduleRepository.save(s);
+  }
+
+
+
+
+  @GetMapping("setSchedule/{id}/StartHour/{hour}/Minute/{minute}/Second/{second}")
+  public Schedule setScheduleTime(@PathVariable(name = "id") int id,
+      @PathVariable(name = "hour") int hour, @PathVariable(name = "minute") int minute, @PathVariable(name = "second") int second) {
+    Schedule s = scheduleRepository.findById(id).get();
+    Time t = Time.valueOf(""+hour+":"+minute+":"+second);
     s.setStartHour(t);
     return scheduleRepository.save(s);
   }
 
-  @GetMapping("setSchedule/{id}/EndHour/{hour}")
+  @GetMapping("setSchedule/{id}/EndHour/{hour}/Minute/{minute}/Second/{second}")
   public Schedule setScheduleEndTime(@PathVariable(name = "id") int id,
-      @PathVariable(name = "hour") int hour) {
+      @PathVariable(name = "hour") int hour, @PathVariable(name = "minute") int minute, @PathVariable(name = "second") int second) {
     Schedule s = scheduleRepository.findById(id).get();
-    Time t = Time.valueOf(""+hour+":00:00");
+    Time t = Time.valueOf(""+hour+":"+minute+":"+second);
     s.setEndHour(t);
     return scheduleRepository.save(s);
   }

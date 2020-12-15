@@ -3,6 +3,8 @@ const FIND_MEMBER_BY_ID = "http://localhost:8080/findMemberById"
 const CREATE_MEMBER_URL = "http://localhost:8080/addMember"
 const DELETE_MEMBER_URL = "http://localhost:8080/removeMember"
 const UPDATE_MEMBER     = "http://localhost:8080/updateMember"
+const ADD_BOOK     = "http://localhost:8080/addBook"
+
 
 const findAllMembers = () =>
   fetch(`${FIND_ALL_MEMBERS}`)
@@ -14,6 +16,11 @@ const findMemberById = (lcid) =>
 
 const createMember = (member) =>
   fetch(`${CREATE_MEMBER_URL}`)
+    .then(response => response.json())
+
+
+const addBook = (bookId, member) =>
+    fetch(`${ADD_BOOK}/${bookId}/ToMember/${member.libraryCardId}`)
     .then(response => response.json())
 
 const deleteMember = (lcid) =>

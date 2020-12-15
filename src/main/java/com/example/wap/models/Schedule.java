@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "schedules")
@@ -60,11 +61,11 @@ public class Schedule {
     this.year = year;
     this.setDay(this.d,this.month,year);
   }
-
+  @Transient
   private int d;
-
+  @Transient
   private int month;
-
+  @Transient
   private int year;
 
   public void setDay(int day, int month, int year) {

@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
+import javax.persistence.Transient;
 
 
 @Entity
@@ -36,6 +36,7 @@ public class Member {
   @Column(name="DOB")
   private Date dob;
 
+  @Transient
   private int day;
 
   public int getDay() {
@@ -67,9 +68,9 @@ public class Member {
     this.setDob(this.day,this.month,year);
 
   }
-
+  @Transient
   private int month;
-
+  @Transient
   private int year;
 
   public void setDob(int day, int month, int year) {

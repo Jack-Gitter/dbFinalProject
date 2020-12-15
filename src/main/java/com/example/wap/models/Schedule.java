@@ -2,7 +2,7 @@ package com.example.wap.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.sql.Time;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,6 +32,17 @@ public class Schedule {
 
   @OneToMany(mappedBy = "sid")
   List<LibrarianSchedule> librarianSchedules;
+
+
+  private int day;
+
+  private int month;
+
+  private int year;
+
+  public void setDay(int day, int month, int year) {
+    this.day = new Date(year-1900, month-1, day);
+  }
 
   public int getScheduleId() {
     return scheduleId;

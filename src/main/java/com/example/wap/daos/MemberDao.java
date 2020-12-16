@@ -2,9 +2,7 @@ package com.example.wap.daos;
 
 
 import com.example.wap.models.Book;
-import com.example.wap.models.LibrarianSchedule;
 import com.example.wap.models.Member;
-import com.example.wap.models.Schedule;
 import com.example.wap.repositories.BookRepository;
 import com.example.wap.repositories.MemberRepository;
 import java.sql.Date;
@@ -30,7 +28,6 @@ public class MemberDao {
   }
 
   @GetMapping("/addMember")
-
   public Member addMember() {
     Member m = new Member();
     return this.memberRepository.save(m);
@@ -38,7 +35,8 @@ public class MemberDao {
   }
 
   @GetMapping("/updateMember/{lcid}/Name/{name}")
-  public Member updateMemberName(@PathVariable("lcid") int lcid, @PathVariable("name") String name) {
+  public Member updateMemberName(@PathVariable("lcid") int lcid,
+      @PathVariable("name") String name) {
     Member m = memberRepository.findById(lcid).get();
     m.setName(name);
     return memberRepository.save(m);
@@ -50,27 +48,30 @@ public class MemberDao {
     Member m = memberRepository.findById(lcid).get();
     year -= 1900;
 
-    java.sql.Date d = new Date(year, month-1, day);
+    java.sql.Date d = new Date(year, month - 1, day);
     m.setDob(d);
     return memberRepository.save(m);
   }
 
   @GetMapping("setMember/{lcid}/dob/Day/{day}")
-  public Member setMemberDOBDay(@PathVariable(name = "id") int id, @PathVariable(name = "day") int day) {
+  public Member setMemberDOBDay(@PathVariable(name = "id") int id,
+      @PathVariable(name = "day") int day) {
     Member m = memberRepository.findById(id).get();
     m.setDay(day);
     return memberRepository.save(m);
   }
 
   @GetMapping("setMember/{lcid}/dob/Month/{month}")
-  public Member setMemberDOBMonth(@PathVariable(name = "id") int id, @PathVariable(name = "month") int month) {
+  public Member setMemberDOBMonth(@PathVariable(name = "id") int id,
+      @PathVariable(name = "month") int month) {
     Member m = memberRepository.findById(id).get();
     m.setMonth(month);
     return memberRepository.save(m);
   }
 
   @GetMapping("setMember/{lcid}/dob/Year/{year}")
-  public Member setMemberDOBYear(@PathVariable(name = "id") int id, @PathVariable(name = "year") int year) {
+  public Member setMemberDOBYear(@PathVariable(name = "id") int id,
+      @PathVariable(name = "year") int year) {
     Member m = memberRepository.findById(id).get();
     m.setYear(year);
     return memberRepository.save(m);

@@ -1,58 +1,60 @@
-class LibrarianscheduleEditor extends React.Component {
+class LibrarianScheduleEditor extends React.Component {
 
   state = {
-    librarianschedule: {}
+    librarian: {},
+    schedule: {}
+
   }
 
-  findLibrarianScheduleById = (id) =>{
-    findLibrarianScheduleById(id)
-      .then(librarianschedule => this.setState({librarianschedule}))}
+  findLibrarianById = (id) =>{
+    findLibrarianById(id)
+      .then(librarian => this.setState({librarian}))}
+
+  findScheduleById = (id) =>{
+    findScheduleById(id)
+    .then(schedule => this.setState({schedule}))}
 
 
   componentDidMount = () => {
-    const id = window.location.search.split("=")[1]
-    this.findLibrarianScheduleById(id)
+    const libId = window.location.search.split("=")[1]
+    const schedId = window.location.search.split("=")[2]
+
+    this.findLibrarianById(libId)
+    this.findScheduleById(schedId)
+
   }
 
   addSchedule = () =>
-    addSchedule(this.state.librarianschedule)
+    addSchedule(this.state.librarian,this.state.schedule)
   removeSchedule = () =>
-      removeSchedule(this.state.librarianschedule)
+      removeSchedule(this.state.librarian,this.state.schedule)
 
 
   render() {
     return(
       <div className="container">
-        <h1>LibrarianSchedule Editor {this.state.librarianschedule.name}</h1>
-        <input className="form-control" readOnly={true} value={this.state.librarianschedule.librarianscheduleId}/>
+        <h1>LibrarianSchedule Editor {this.state.librarian.name}</h1>
+        <input className="form-control" readOnly={true} value={this.state.librarian.name}/>
         <div>
         <label>Add Schedule</label>
-        <input
+        <label>Librarian ID</label><input
           onChange={(event) => this.setState({
-            librarianschedule: {
-              ...this.state.librarianschedule,
-              name: event.target.value
+            librarian: {
+              ...this.state.librarian,
+              librarianId: event.target.value
             }
-          })}
+          })}className="form-control"
+          value={this.state.librarian.librarianId}/>
+       <label>Schedule ID</label> <input
+            onChange={(event) => this.setState({
+              schedule: {
+                ...this.state.schedule,
+                scheduleId: event.target.value
+              }
+            })}
           className="form-control"
-          value={this.state.librarianschedule.schedules}/>
+          value={this.state.schedule.scheduleId}/>
           <button onClick={this.addSchedule}>
-            Save
-          </button>
-        </div>
-
-        <div>
-          <label>Remove Schedule</label>
-          <input
-              onChange={(event) => this.setState({
-                librarianschedule: {
-                  ...this.state.librarianschedule,
-                  name: event.target.value
-                }
-              })}
-              className="form-control"
-              value={this.state.librarianschedule.schedules}/>
-          <button onClick={this.removeSchedule}>
             Save
           </button>
         </div>
@@ -64,4 +66,4 @@ class LibrarianscheduleEditor extends React.Component {
 }
 
 ReactDOM.render(
-  <LibrarianscheduleEditor/>, document.getElementById("root"))
+  <LibrarianScheduleEditor/>, document.getElementById("root"))

@@ -74,6 +74,7 @@ public class Member {
   private int year;
 
 
+  @Transient
   private int bookId;
 
   public void setDob(int day, int month, int year) {

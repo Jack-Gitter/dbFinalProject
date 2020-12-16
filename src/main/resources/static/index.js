@@ -64,6 +64,9 @@ class Index extends React.Component {
               <li className="list-group-item">
                 <a href="book-list/book-list.html">Books</a>
               </li>
+              <li className="list-group-item">
+                <a href="member-list/member-list.html">Members</a>
+              </li>
             </ul>
           </div>)
     }

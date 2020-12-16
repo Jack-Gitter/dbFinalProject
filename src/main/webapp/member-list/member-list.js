@@ -1,5 +1,3 @@
-
-
 class MemberList extends React.Component {
   state = {
     members: []
@@ -53,11 +51,13 @@ class MemberList extends React.Component {
                       <td>{member.libraryCardId}</td>
                       <td>{member.name}</td>
                       <td>{member.dob}</td>
-                      <td>{member.books.map(book => <div>{book.title}</div>)}</td>
+                      <td>{member.books.map(
+                          book => <div>{book.title}</div>)}</td>
                       <td>
                         <button
                             id="delete" className="btn btn-danger float-right"
-                            onClick={() => this.deleteMember(member.libraryCardId)}>
+                            onClick={() => this.deleteMember(
+                                member.libraryCardId)}>
                           Delete
                         </button>
 
@@ -76,7 +76,8 @@ class MemberList extends React.Component {
             </table>
           </div>
 
-      )}else{
+      )
+    } else {
       return (
 
           <div className="container-fluid">
@@ -102,7 +103,12 @@ class MemberList extends React.Component {
                       <td>{member.libraryCardId}</td>
                       <td>{member.name}</td>
                       <td>{member.dob}</td>
-                      <td>{member.books}</td>
+                      <td>{member.books.map(
+                          book => <div>{book.title}</div>)}</td>
+                      <td><a id="edit" className="btn btn-primary float-right"
+                             href={`../../member-editor/member-editor.html?lcid=${member.libraryCardId}`}>
+                        Edit
+                      </a></td>
                     </tr>
                 )
 
@@ -113,7 +119,6 @@ class MemberList extends React.Component {
 
       )
     }
-
 
   }
 }

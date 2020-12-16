@@ -98,9 +98,6 @@ class MemberEditor extends React.Component {
               Save
             </button>
           </div>
-          <a href="../member-list/member-list.html">
-            Done
-          </a>
 
 
           <div>

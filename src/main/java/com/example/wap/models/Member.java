@@ -73,6 +73,9 @@ public class Member {
   @Transient
   private int year;
 
+
+  private int bookId;
+
   public void setDob(int day, int month, int year) {
     this.dob = new Date(year-1900, month-1, day-1);
   }

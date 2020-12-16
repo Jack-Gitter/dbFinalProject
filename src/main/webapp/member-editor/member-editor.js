@@ -1,5 +1,4 @@
 class MemberEditor extends React.Component {
-  bookId=0;
   state = {
     member: {}
   }
@@ -23,20 +22,17 @@ class MemberEditor extends React.Component {
       updateMemberDay(this.state.member)
   saveMemberYear = () =>
       updateMemberDay(this.state.member)
-  addBook = (bookId) =>
-      addBook(bookId, this.state.member)
+  addBook = () =>
+      addBook(this.state.member)
+  returnBook = () =>
+      returnBook(this.state.member)
 
-  handleChange = event => {
-
-    this.bookId=event.target.value;
-
-  };
   render() {
     return (
         <div className="container">
           <h1>Member Editor {this.state.member.name}</h1>
           <input className="form-control" readOnly={true}
-                 value={this.state.member.memberId}/>
+                 value={this.state.member.libraryCardId}/>
           <div>
             <label>Name</label>
             <input
@@ -102,9 +98,27 @@ class MemberEditor extends React.Component {
 
           <div>
             <label>Add Book (ID)</label>
-            <input id="addBook" onChange={this.handleChange}/>
+            <input onChange={(event) => this.setState({
+              member: {
+                ...this.state.member,
+                bookId: event.target.value
+              }
+            })}/>
             <button
-                onClick={this.addBook(this.bookId)}>
+                onClick={this.addBook}>
+              Save
+            </button>
+          </div>
+          <div>
+            <label>Return Book (ID)</label>
+            <input onChange={(event) => this.setState({
+              member: {
+                ...this.state.member,
+                bookId: event.target.value
+              }
+            })}/>
+            <button
+                onClick={this.returnBook}>
               Save
             </button>
           </div>

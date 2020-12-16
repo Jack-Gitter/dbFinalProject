@@ -19,8 +19,6 @@ class BookList extends React.Component {
       this.findAllBooks()
 
   render() {
-    if (localStorage.getItem("user") === "librarian") {
-
       return (
 
           <div className="container-fluid">
@@ -73,38 +71,6 @@ class BookList extends React.Component {
           </div>
 
       )
-    } else {
-      return (<div className="container-fluid">
-        <a className="btn btn-danger float-right"
-           href="../../index.html">
-          Home
-        </a>
-        <h1>Book List</h1>
-        <table className="table">
-          <thead>
-          <tr>
-            <th>Book ID</th>
-            <th>Title</th>
-            <th>Author</th>
-            <th>&nbsp;</th>
-          </tr>
-          </thead>
-          <tbody>
-          {
-            this.state.books.map(book =>
-                <tr key={book.bookId}>
-                  <td>{book.bookId}</td>
-                  <td>{book.title}</td>
-                  <td>{book.author}</td>
-                </tr>
-            )
-
-          }
-          </tbody>
-        </table>
-      </div>)
-
-    }
   }
 }
 

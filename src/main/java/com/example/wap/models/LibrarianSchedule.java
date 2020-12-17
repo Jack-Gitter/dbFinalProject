@@ -22,6 +22,7 @@ public class LibrarianSchedule {
   @Column(name = "sid")
   private int sid;
 
+
   @ManyToOne
   @JsonIgnore
   @PrimaryKeyJoinColumn(name = "lid", referencedColumnName = "librarian")

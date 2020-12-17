@@ -24,8 +24,9 @@ public class Librarian {
   @Column(name = "salary")
   private int salary;
 
+
   @OneToMany(mappedBy = "lid")
-  List<LibrarianSchedule> librarianSchedules;
+  private List<LibrarianSchedule> librarianSchedules;
 
 
   private int scheduleId;

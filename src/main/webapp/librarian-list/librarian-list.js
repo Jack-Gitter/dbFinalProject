@@ -52,8 +52,8 @@ class LibrarianList extends React.Component {
                       <td>{librarian.librarianId}</td>
                       <td>{librarian.name}</td>
                       <td>{librarian.salary}</td>
-                      <td>({librarian.librarianSchedules.map(
-                          librarianSchedule => <div>{librarianSchedule.sid}</div>)})</td>
+                      <td>{librarian.librarianSchedules.map(
+                          LibrarianSchedule => <div>{LibrarianSchedule.scheduleId}</div>)}</td>
                       <td>
                         <button
                             id="delete" className="btn btn-danger float-right"

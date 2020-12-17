@@ -1,6 +1,6 @@
 
 const ADD_SCHEDULE_URL = "http://localhost:8080/addSchedule"
-const REMOVE_SCHEDULE_URL = "http://localhost:8080/addSchedule"
+const REMOVE_SCHEDULE_URL = "http://localhost:8080/removeSchedule"
 const FIND_ALL_URL = "http://localhost:8080/findAllMappings"
 
 
@@ -9,15 +9,13 @@ const findAllMappings = () =>
     .then(response => response.json())
 
 
-const addSchedule = (schedule, librarian) =>
-    fetch(`${ADD_SCHEDULE_URL/schedule.schedule/ToLibrarian/librarian.librarianId}`)
+const addSchedule = (librarian) =>
+    fetch(`${ADD_SCHEDULE_URL}/${librarian.scheduleId}/ToLibrarian/${librarian.librarianId}`)
     .then(response => response.json())
 
 
-const removeSchedule = (schedule, librarian) =>
-    fetch(`${REMOVE_SCHEDULE_URL/schedule.schedule/FromLibrarian/librarian.librarianId}`)
-    .then(response => response.json())
-
+const removeSchedule = (librarian) =>
+    fetch(`${REMOVE_SCHEDULE_URL}/${librarian.scheduleId}/FromLibrarian/${librarian.librarianId}`)
 
 
 

@@ -1,13 +1,15 @@
 class LibrarianScheduleList extends React.Component {
   state = {
-    librarianschedules: []
+    librarianSchedules: []
   }
 
   findAllLibrarianSchedules = () =>
       findAllMappings()
-      .then((librarianschedules) => this.setState({librarianschedules}))
+      .then((librarianSchedules) => this.setState({librarianSchedules}))
 
-
+  createLibrarianSchedule = () =>
+      addSchedule(this.state.librarianSchedules.librarian.librarianId, this.state.librarianSchedules.schedule.scheduleId)
+      .then(() => this.findAllLibrarianSchedules())
 
 
   deleteLibrarianSchedule = (libId, schedId) =>
@@ -22,10 +24,33 @@ class LibrarianScheduleList extends React.Component {
       return (
 
           <div className="container-fluid">
+            {<div>
+              <label>Librarian ID</label><input
+                onChange={(event) => this.setState({
+                  librarianSchedules: {
+                    ...this.state.librarianSchedules,
+                    librarian: findLibrarianById(event.target.value)
+                  }
+                })}className="form-control"/>
+              <label>Schedule ID</label> <input
+                onChange={(event) => this.setState({
+                  librarianSchedules: {
+                    ...this.state.librarianSchedules,
+                    schedule: findScheduleById(event.target.value)
+                  }
+                })}
+                className="form-control"/>
+            </div>}
+            <button
+                className="btn btn-success float-right"
+                onClick={() => this.createLibrarianSchedule()}>
+              Create
+            </button>
             <a className="btn btn-danger float-right"
                href="../../index.html">
               Home
             </a>
+
             <h1>LibrarianSchedule List</h1>
             <table className="table">
               <thead>
@@ -37,20 +62,20 @@ class LibrarianScheduleList extends React.Component {
               </thead>
               <tbody>
               {
-                this.state.librarianschedules.map(librarianschedule =>
-                    <tr key={librarianschedule.librarian.librarianId}>
-                      <td>{librarianschedule.librarian.librarianId}</td>
-                      <td>{librarianschedule.schedule.scheduleId}</td>
+                this.state.librarianSchedules.map(librarianSchedule =>
+                    <tr key={librarianSchedule.librarian.librarianId}>
+                      <td>{librarianSchedule.librarian.librarianId}</td>
+                      <td>{librarianSchedule.schedule.scheduleId}</td>
                       <td>
                         <button
                             id="delete" className="btn btn-danger float-right"
                             onClick={() => this.deleteLibrarianSchedule(
-                                librarianschedule.librarian.librarianId,librarianschedule.schedule.scheduleId)}>
+                                librarianSchedule.librarian.librarianId,librarianSchedule.schedule.scheduleId)}>
                           Delete
                         </button>
 
                         <a id="edit" className="btn btn-primary float-right"
-                           href={`../../librarianschedule-editor/librarianschedule-editor.html?librarianscheduleId=${librarianschedule.librarian.librarianId}=${librarianschedule.schedule.scheduleId}`}>
+                           href={`../../librarianschedule-editor/librarianschedule-editor.html?librarianscheduleId=${librarianSchedule.librarian.librarianId}=${librarianSchedule.schedule.scheduleId}`}>
                           Edit
                         </a>
 

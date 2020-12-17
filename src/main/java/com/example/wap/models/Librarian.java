@@ -27,6 +27,9 @@ public class Librarian {
   @OneToMany(mappedBy = "lid")
   List<LibrarianSchedule> librarianSchedules;
 
+
+  private int scheduleId;
+
   public int getLibrarianId() {
     return librarianId;
   }

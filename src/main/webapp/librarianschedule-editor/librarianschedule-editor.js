@@ -1,3 +1,4 @@
+/*
 class LibrarianScheduleEditor extends React.Component {
 
   state = {
@@ -67,3 +68,4 @@ class LibrarianScheduleEditor extends React.Component {
 
 ReactDOM.render(
   <LibrarianScheduleEditor/>, document.getElementById("root"))
+*/

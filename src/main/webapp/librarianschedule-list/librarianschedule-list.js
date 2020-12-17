@@ -1,3 +1,4 @@
+/*
 class LibrarianScheduleList extends React.Component {
   state = {
     librarianSchedules: []
@@ -99,3 +100,4 @@ ReactDOM.render(
     document.getElementById('root')
 )
 
+*/

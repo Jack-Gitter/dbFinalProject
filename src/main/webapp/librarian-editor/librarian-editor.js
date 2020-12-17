@@ -61,22 +61,23 @@ class LibrarianEditor extends React.Component {
             <button onClick={this.saveLibrarianSalary}>
               Save
             </button>
-            <label>Schedule ID</label> <input
-              onChange={(event) => this.setState({
-                librarian: {
-                  ...this.state.librarian,
-                  scheduleId: event.target.value
-                }
-              })}
-              className="form-control"
-              value={this.state.librarian.scheduleId}/>
-            <button onClick={this.addSchedule}>
-              Add Schedule
-            </button>
-            <button onClick={this.removeSchedule}>
-              Remove Schedule
-            </button>
-
+            <div>
+              <label>Schedule ID</label> <input
+                onChange={(event) => this.setState({
+                  librarian: {
+                    ...this.state.librarian,
+                    scheduleId: event.target.value
+                  }
+                })}
+                className="form-control"
+                value={this.state.librarian.scheduleId}/>
+              <button onClick={this.addSchedule}>
+                Add Schedule
+              </button>
+              <button onClick={this.removeSchedule}>
+                Remove Schedule
+              </button>
+            </div>
           </div>
           <a href="../librarian-list/librarian-list.html">
             Done

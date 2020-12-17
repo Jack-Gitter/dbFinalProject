@@ -105,10 +105,6 @@ class MemberList extends React.Component {
                       <td>{member.dob}</td>
                       <td>{member.books.map(
                           book => <div>{book.title}</div>)}</td>
-                      <td><a id="edit" className="btn btn-primary float-right"
-                             href={`../../member-editor/member-editor.html?lcid=${member.libraryCardId}`}>
-                        Edit
-                      </a></td>
                     </tr>
                 )
 

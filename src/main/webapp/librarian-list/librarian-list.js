@@ -22,7 +22,6 @@ class LibrarianList extends React.Component {
 
   render() {
 
-    if (localStorage.getItem("user") === "librarian") {
       return (
 
           <div className="container-fluid">
@@ -53,7 +52,7 @@ class LibrarianList extends React.Component {
                       <td>{librarian.librarianId}</td>
                       <td>{librarian.name}</td>
                       <td>{librarian.salary}</td>
-                      <td>{findAllLibrarianSchedules().map(
+                      <td>{librarian.librarianSchedules.map(
                           librarianSchedule => <div>{librarianSchedule.schedule.scheduleId}</div>)}</td>
                       <td>
                         <button
@@ -77,45 +76,7 @@ class LibrarianList extends React.Component {
             </table>
           </div>
 
-      )}else{
-      return (
-
-          <div className="container-fluid">
-
-            <a className="btn btn-danger float-right"
-               href="../../index.html">
-              Home
-            </a>
-            <h1>Librarian List</h1>
-            <table className="table">
-              <thead>
-              <tr>
-                <th>Librarian ID</th>
-                <th>Name</th>
-                <th>Salary</th>
-                <th>Schedule</th>
-                <th>&nbsp;</th>
-              </tr>
-              </thead>
-              <tbody>
-              {
-                this.state.librarians.map(librarian =>
-                    <tr key={librarian.librarianId}>
-                      <td>{librarian.librarianId}</td>
-                      <td>{librarian.name}</td>
-                      <td>{librarian.salary}</td>
-                      <td>{librarian.librarianSchedules}</td>
-                    </tr>
-                )
-
-              }
-              </tbody>
-            </table>
-          </div>
-
       )
-
-    }
 
 
   }
